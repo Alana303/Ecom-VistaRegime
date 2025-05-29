@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to EcomVista</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Message -->
+        <h1>WELCOME TO ECOMVISTA</h1>
+        <p>Your one-stop eCommerce platform for informational insights and the latest trends in eCommerce.</p>
+
+        <h2>Register to Get Started</h2>
+        
+        <form id="registerForm">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" placeholder="Enter Full Name" required>
+            
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter Username" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter Email" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter Password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p id="message"></p>
+
+        <!-- Login Link for Returning Users -->
+        <p>Already have an account? <a href="login.html">Log In</a></p>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#registerForm").submit(function(event){
+                event.preventDefault(); // Prevent form refresh
+                
+                var fullname = $("#fullname").val();
+                var username = $("#username").val();
+                var email = $("#email").val();
+                var password = $("#password").val();
+
+                $.ajax({
+                    url: "register.php",
+                    type: "POST",
+                    data: {fullname: fullname, username: username, email: email, password: password},
+                    success: function(response) {
+                        $("#message").html(response).fadeIn();
+                        if (response.includes("✅ Registration successful!")) {
+                            setTimeout(function(){
+                                window.location.href = "home.html"; // Redirect after 3 seconds
+                            }, 3000);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

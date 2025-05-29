@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Tracking | Glamorify</title>
+    <link rel="stylesheet" type="text/css" href="purchase-tracking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .btn-track {
+            padding: 10px 20px;
+            color: whitesmoke;
+            text-decoration: underline;
+        }
+        .btn-track:hover {
+            background-color: red;
+            border-radius: 20%;
+
+        }
+    </style>
+</head>
+<body>
+    <!------ Navbar Section ---->
+    <section id="menubar">
+        <div class="navbar">
+            <div class="logo"><a href="#"><img src=""></a></div>
+            <!-- Menu Icon for Mobile -->
+            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+            <!-- Nav Links -->
+            <ul class="nav-links">
+                <li><a href="home.html"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="./market-insights.html"><i class="fas fa-chart-line"></i> Market Insights</a></li>
+                <li><a href="./delivery-tracking.html"><i class="fas fa-truck"></i> Delivery Tracking</a></li>
+                <li><a href="purchase-tracking.html" class="active"><i class="fas fa-shopping-cart"></i> Purchase Tracking</a></li>
+                <li><a href="./secure-payments.html"><i class="fas fa-lock"></i> Secure Payments</a></li>
+                <li><a href="./privacy.html"><i class="fas fa-user-secret"></i> Privacy</a></li>
+                <li><a href="./mobile-app.html"><i class="fas fa-mobile-screen-button"></i> Mobile App</a></li>
+            </ul>
+        </div>
+        <script src="script.js"></script>
+    </section>
+
+    <main>
+        <section class="hero">
+            <img src="images/read1 (1).jpg" alt="Purchase Tracking" class="hero-img">
+            <div class="hero-content">
+                <h1>Monitor Your Purchases with Ease</h1>
+                <p><b>Stay updated on all your orders, track purchases in real-time, and manage your shopping history efficiently with Glamorify.</b></p>
+                <a href="#tracking-info" class="btn-track">Start Tracking</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2>Key Features of Our Purchase Tracking</h2>
+            <div class="feature-card">
+                <h3>Order History Management</h3>
+                <p><b>Access a detailed record of all your past transactions.</b></p>
+            </div>
+            <div class="feature-card">
+                <h3>Real-Time Purchase Status</h3>
+                <p><b>Know exactly when your order is confirmed, shipped, and delivered.</b></p>
+            </div>
+            <div class="feature-card">
+                <h3>Seamless Refund & Return Tracking</h3>
+                <p><b>Easily monitor refunds and returns for a stress-free shopping experience.</b></p>
+            </div>
+        </section>
+
+        <!-- Call-to-Action Section -->
+        <section class="cta" id="tracking-info">
+            <h2>Track Your Purchases Effortlessly</h2>
+            <p><b>Stay informed about every step of your shopping journey with our intuitive purchase tracking system. Join Glamorify for seamless order management.</b></p>
+            <a href="contact.html" class="btn-contact">Get in Touch</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Glamorify. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

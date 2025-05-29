@@ -1,0 +1,865 @@
+/* General Styles */
+:root {
+    --primary-bg: #151269;
+    --secondary-bg: darkblue;
+    --accent-color: #007BFF; /* CTA blue */
+    --text-light: whitesmoke;
+    --text-dark: black;
+    --danger-color: red; /* Common hover, cta-btn hover */
+    --highlight-color: dodgerblue; /* .active class */
+    --gradient-main: linear-gradient(#8697C4, #ADBBDA, #8697C4); /* Featured services, testimonials bg */
+    --font-primary: Georgia, 'Times New Roman', Times, serif;
+    --default-padding: 20px;
+    --default-padding-large: 40px;
+    --default-margin-top: 20px;
+    --border-radius-s: 5px;
+    --border-radius-m: 8px;
+    --border-radius-l: 10px;
+    --border-radius-xl: 15px;
+    --border-radius-xxl: 20px;
+    --border-radius-round: 30px; /* CTA button */
+    --border-radius-circle: 50%; /* Testimonial img */
+    --box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow-medium: 0 8px 15px rgba(0, 0, 0, 0.2); /* Testimonial, feature */
+    --box-shadow-dark: 0 10px 15px rgba(0, 0, 0, 0.2); /* Service hover */
+    --box-shadow-hover: 0 12px 20px rgba(0, 0, 0, 0.3); /* Testimonial hover */
+    --transition-common: transform 0.3s ease, box-shadow 0.3s ease;
+    --transition-bg-color: background-color 0.3s ease, color 0.3s ease;
+    --transition-transform: transform 0.3s ease;
+    --font-size-base: 1rem;      /* 16px */
+    --font-size-md: 1.2rem;      /* ~19px */
+    --font-size-lg: 1.3em;       /* ~21px */
+    --font-size-xl: 1.8rem;      /* ~29px */
+    --font-size-xxl: 2rem;       /* 32px */
+    --font-size-h1-section: 2.8em; /* ~45px */
+    --font-size-h1-hero: 3rem;     /* 48px */
+    --font-size-h1-newsletter: 2.5em; /* 40px */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+}
+
+body {
+    background-image: url('images/Grey Illustration Butterfly Background Instagram Story.png');
+    background-size: cover;
+    background-attachment: scroll; /* Default is scroll, can be fixed if needed */
+    min-height: 100vh;
+}
+
+hr {
+    height: 2px;
+    border: 1px solid var(--text-dark);
+}
+
+/* Navbar Styling */
+#menubar {
+    background-color: var(--primary-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--default-padding);
+    position: fixed;
+    width: 100%;
+    z-index: 500;
+    top: 0;
+}
+
+.navbar { /* This class seems to wrap nav-links, ensure its usage is intended */
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--default-padding); /* Was 20px */
+}
+
+.nav-links li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: var(--font-size-md);
+    padding: 10px var(--default-padding);
+    border-radius: var(--border-radius-xl);
+    display: flex; /* For icon alignment if any, and centering */
+    align-items: center;
+    justify-content: center; /* Added from one of the definitions */
+    margin: 0 10px; /* Added from one of the definitions */
+    transition: var(--transition-bg-color);
+}
+
+.nav-links li a:hover {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+}
+
+.nav-links li a.active { /* Combined .active and .footer-links a.active */
+    background-color: var(--highlight-color);
+    color: var(--text-light);
+    font-weight: bolder; /* from footer-links a.active */
+}
+
+/* Menu Icon for mobile */
+.menu-icon {
+    font-size: var(--font-size-xxl);
+    color: var(--text-light);
+    cursor: pointer;
+    display: none; /* Shown in media query */
+}
+
+/* Dropdown Menu Styling */
+.dropdown { /* Assuming .dropdown is a list item (li) in .nav-links */
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--text-light);
+    width: 250px; /* Consider using min-width or width based on content */
+    padding: 10px;
+    box-shadow: var(--box-shadow-light);
+    z-index: 100;
+    flex-direction: row; /* Default, can be column for mobile if needed via media query */
+}
+
+.dropdown:hover , .dropdown-content {
+    display: flex; /* This makes it show */
+}
+
+.dropdown-column {
+    display: flex;
+    flex-direction: column;
+    width: 50%; /* For two-column layout */
+}
+
+.dropdown-column a {
+    padding: 8px;
+    color: var(--primary-bg); /* Example: #0a1d56 */
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-column a:hover {
+    background: #f1f1f1; /* Light grey hover */
+}
+
+
+/* Hero Section Styling */
+#hero {
+    text-align: left; /* Base style */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: auto; /* Initial: auto, responsive: 800px */
+    padding-top: var(--default-padding);
+    /* margin-top: 20px; Initial */
+    /* margin-top: -45px; From a duplicate definition */
+    margin-top: -20px;
+    background: var(--secondary-bg); /* From one definition */
+    overflow: hidden; /* Prevent animation overflow */
+}
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    color: #ffffff; /* Explicit white, can use var(--text-light) if appropriate */
+    /* font-family: var(--font-primary); Inherited */
+    font-size: var(--font-size-md);
+    font-weight: bold; /* bolder in one, bold in another. Chose bold. */
+    width: 100%;
+    height: auto; /* Initial: auto, responsive: 800px */
+    background: var(--secondary-bg), url('images/image15.png') no-repeat center center/cover;
+    padding: var(--default-padding-large);
+    border-radius: var(--border-radius-m);
+    /* margin-top: 30px; Initial */
+    /* margin-top: -45px; From a duplicate definition. Handled by #hero's margin or specific context */
+    animation: rollUpDown 5s infinite ease-in-out alternate;
+}
+
+.hero-img {
+    flex: 5;
+    max-width: 400px;
+    height: auto;
+    margin-right: 2rem;
+    border-radius: var(--border-radius-l);
+    box-shadow: var(--box-shadow-light);
+    animation: swirl 10s linear infinite; /* Added from one definition */
+}
+
+.hero-content {
+    flex: 6;
+    max-width: 700px;
+    padding-left: var(--default-padding);
+    /* margin-top: 30px; From one definition, adjust if needed or manage spacing parentally */
+}
+
+.hero-content h1 {
+    /* margin-top: 20px; Present in one def, removed for clamp consistency if parent manages spacing */
+    font-size: clamp(2rem, 5vw, var(--font-size-hero-title)); /* Merged */
+    margin-bottom: 10px;
+}
+
+.hero-content h2 {
+    /* margin-top: 20px; */
+    font-size: var(--font-size-xl);
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    /* margin-top: 20px; */
+    font-size: var(--font-size-md);
+    line-height: 1.6;
+    max-width: 100%;
+    text-align: justify;
+}
+
+/* CTA Button */
+#cta-btn {
+    padding: 15px var(--border-radius-round); /* 30px */
+    border-radius: var(--border-radius-round);
+    margin-top: var(--default-margin-top); /* Was 20px, also 15px in one spot. Standardized. */
+    background-color: var(--accent-color);
+    color: white; /* Or var(--text-light) */
+    font-size: var(--font-size-md);
+    border: none;
+    cursor: pointer; /* Added from hover, good to have on base */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Merged */
+}
+
+#cta-btn:hover {
+    background-color: var(--danger-color);
+    transform: scale(1.05);
+}
+
+/* Section Header (Common for multiple sections) */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--default-padding);
+    background: var(--gradient-main); /* Applied to #featured-services directly too */
+}
+
+.section-header h1 {
+    font-size: var(--font-size-h1-section);
+    color: var(--text-dark);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.section-header p {
+    color: #ffffff; /* Or var(--text-light) */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: var(--font-size-lg);
+}
+
+/* Featured Services Section (Structure, specific content styles might vary) */
+#featured-services {
+    background: var(--gradient-main);
+    /* padding from .section-padding if used, or define here */
+}
+
+
+/* Service Grid (Part of Featured Services or a generic grid) */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    padding: var(--default-padding);
+}
+
+.service { /* Card-like item */
+    background: #fff; /* White background */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: var(--border-radius-l);
+    text-align: center;
+    padding: var(--default-padding);
+    box-shadow: var(--box-shadow-light);
+    transition: var(--transition-common);
+    text-decoration: none;
+    color: inherit;
+}
+
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow-dark); /* Slightly darker shadow on hover */
+}
+
+.service img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-l);
+    transition: var(--transition-transform);
+}
+
+.service:hover img {
+    transform: scale(1.05);
+}
+
+/* Testimonials Section */
+#testimonials {
+    background: var(--gradient-main);
+    padding: var(--default-padding-large) var(--default-padding); /* 40px 20px */
+}
+
+.testimonials-header h1 { /* Could potentially use .section-header h1 if styling is identical */
+    text-align: center;
+    font-size: var(--font-size-h1-section); /* Was 2.8rem */
+    margin-bottom: 30px;
+    margin-top: 10px;
+    color: #ffffff; /* Or var(--text-light) */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.testimonials-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--default-padding-large); /* 40px */
+    flex-wrap: wrap;
+    padding: var(--default-padding);
+}
+
+.testimonial { /* Card-like item */
+    background: #f9f9f9; /* Off-white background */
+    border-radius: var(--border-radius-xxl);
+    padding: 25px;
+    text-align: center;
+    width: 350px;
+    box-shadow: var(--box-shadow-medium);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Combined */
+    cursor: pointer;
+}
+
+.testimonial:hover {
+    transform: translateY(-10px);
+    background-color: peachpuff; /* Specific hover background */
+    box-shadow: var(--box-shadow-hover); /* Darker shadow on hover */
+}
+
+.testimonial img {
+    width: 100px;
+    height: 100px;
+    border-radius: var(--border-radius-circle);
+    margin-bottom: 15px;
+    border: 3px solid #8697C4; /* Color from the gradient */
+    box-shadow: var(--box-shadow-light);
+    transition: border-color 0.3s ease;
+}
+
+.testimonial:hover img {
+    border-color: #4a5f9e; /* Darker shade for hover */
+}
+
+.testimonial p {
+    font-size: var(--font-size-md);
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.testimonial h4 {
+    font-size: 1.4rem; /* Slightly larger than md */
+    color: #333; /* Dark grey text */
+    font-weight: bolder;
+}
+
+/* Newsletter Section */
+#newsletter {
+    background: var(--accent-color); /* CTA blue */
+    color: #fff; /* Or var(--text-light) */
+    text-align: center;
+    padding: var(--default-padding-large) var(--default-padding); /* 40px 20px */
+}
+
+#newsletter h1 {
+    font-size: var(--font-size-h1-newsletter);
+    margin-bottom: 10px;
+}
+
+#newsletter p {
+    font-size: var(--font-size-md); /* Was 1.2em */
+    margin-bottom: var(--default-padding);
+}
+
+#newsletter input {
+    padding: 10px;
+    width: 60%;
+    border-radius: var(--border-radius-s); /* 4px */
+    border: none;
+    margin-right: 10px;
+}
+
+#newsletter button {
+    padding: 10px var(--default-padding);
+    background: #007; /* Darker blue */
+    color: white; /* Or var(--text-light) */
+    border: none;
+    border-radius: var(--border-radius-s); /* 4px */
+    cursor: pointer;
+    font-size: var(--font-size-base); /* 1em */
+    transition: var(--transition-bg-color);
+}
+
+#newsletter button:hover {
+    background: var(--danger-color);
+    color: white; /* Or var(--text-light) */
+}
+
+/* Features Section General Styles (header > h1, .header-with-lines) */
+/* This targets a direct child h1 of a header element, ensure this is the intended structure */
+header > h1 {
+    display: inline-block; /* Or flex if using align-items */
+    /* align-items: center; Only for flex/grid container */
+    /* justify-content: center; Only for flex/grid container */
+    font-weight: bolder;
+    font-size: var(--font-size-xxl);
+    border-radius: var(--border-radius-s);
+    cursor: pointer;
+    color: #ffffff; /* Or var(--text-light) */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    /* transition for b tag hover? If b is inside h1 */
+}
+/* header > h1 > b:hover { color: white; transform: scale(1.1); } */
+
+.header-with-lines { /* For titles with lines on sides */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xxl);
+    font-weight: bolder;
+    position: relative; /* If needed for advanced positioning, often not for this layout */
+    color: var(--text-dark); /* Assuming this is for general page sections, not dark bg */
+}
+
+.header-with-lines::before,
+.header-with-lines::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: var(--text-dark);
+    margin: 0 15px;
+}
+/* Optional: .header-with-lines::before { margin-right: 10px; } */
+/* Optional: .header-with-lines::after { margin-left: 10px; } */
+
+
+/* Features Section (Specific section with animated cards) */
+.features-section {
+    margin-top: -110px;
+    padding: 50px var(--default-padding);
+    text-align: center;
+    background: linear-gradient(#7091E6, #8697C4, #ADBBDA, #EDE8F5); /* Unique gradient */
+    animation: fadeInUp 1s ease-in-out; /* Animation for the whole section */
+    animation-delay: 0.3s; /* Delay for the section itself */
+}
+
+.features-section header h1 { /* Header inside .features-section */
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: whitesmoke;
+    font-weight: bolder;
+
+}
+
+.grid-container { /* Used within .features-section and potentially elsewhere */
+    margin-top: 30px; /* Or handled by section padding */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Default for features */
+    /* grid-template-columns: auto auto auto; Was also defined, this is more responsive */
+    padding: 10px; /* Or rely on section padding */
+    gap: 24px; /* Default gap */
+}
+
+.feature { /* Card-like item in .features-section */
+    background: white;
+    border: 2px solid #ddd;
+    padding: var(--default-padding);
+    text-align: center;
+    /* transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease; Combined below */
+    margin-bottom: var(--default-padding-large); /* 40px, for spacing if cards wrap */
+    border-radius: var(--border-radius-l);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Specific shadow */
+    cursor: pointer; /* Added from hover */
+
+    /* Animation properties */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-in-out forwards;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+    /* background: cornflowerblue; First hover definition */
+    background: linear-gradient(to bottom right, #6A89CC, #B8E994); /* Second, more complex hover. Pick one or use modifier. */
+    color: #ffffff;
+    transform: translateY(-5px) scale(1.05); /* Combined translateY and scale */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Merged shadow values */
+}
+
+.feature img {
+    max-width: 100%; /* Responsive */
+    height: auto;
+    border-radius: var(--border-radius-l);
+    margin-bottom: 15px;
+    transition: var(--transition-transform);
+}
+
+.feature img:hover {
+    transform: scale(1.1); /* Zoom in effect for image inside feature */
+}
+
+/* Consolidated .feature h2 and p - assuming this is for the .features-section .feature cards */
+.feature h2 {
+    font-size: 1.5rem; /* from .features-section .feature h2 */
+    margin: 10px 0;
+    color: var(--primary-bg); /* #151269 */
+    font-weight: bolder; /* from another .feature h2 def */
+}
+
+.feature p {
+    font-size: var(--font-size-base); /* 1rem */
+    color: var(--text-dark); /* black */
+    font-weight: normal; /* One def had bolder, another normal. Choose based on design. */
+}
+
+/* Staggered animation delays for .feature cards */
+.feature:nth-child(1) { animation-delay: 0.2s; }
+.feature:nth-child(2) { animation-delay: 0.4s; }
+.feature:nth-child(3) { animation-delay: 0.6s; }
+.feature:nth-child(4) { animation-delay: 0.8s; }
+.feature:nth-child(5) { animation-delay: 1s; }
+.feature:nth-child(6) { animation-delay: 1.2s; }
+.feature:nth-child(7) { animation-delay: 1.4s; }
+.feature:nth-child(8) { animation-delay: 1.6s; }
+
+
+/* Feature Icon (If used with .feature or .service cards) */
+.feature-icon { /* This class was defined but not clearly used within a structure */
+    width: 100px;
+    height: auto;
+    margin-bottom: var(--default-padding);
+}
+
+
+/* Footer Section Styling */
+footer {
+    background-color: var(--primary-bg);
+    color: var(--text-light);
+    padding: var(--default-padding-large) 0 var(--default-padding); /* 40px 0 20px */
+    /* font-family: var(--font-primary); Inherited */
+    font-weight: bolder; /* Applied to whole footer */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center; /* For items when they stack */
+}
+
+.footer-container div { /* Footer columns */
+    margin-bottom: var(--default-padding);
+    flex: 1;
+    min-width: 200px; /* Ensure columns don't get too narrow */
+    text-align: left; /* Override parent text-align for content within columns */
+    padding: 0 10px; /* Add some horizontal padding for column content */
+}
+
+.footer-container div h3 { /* Common style for all footer h3s */
+    text-decoration: underline;
+    font-weight: bolder; /* Already on footer, but can be more specific */
+    font-size: 1.5rem; /* Larger than base footer text */
+    cursor: pointer; /* If they are clickable headers */
+    margin-bottom: 10px; /* Space below header */
+}
+
+.footer-about p {
+    font-size: 14px; /* Smaller text */
+    margin-top: 2px; /* Minimal top margin */
+    line-height: 1.8;
+    font-weight: normal; /* Override footer bolder if needed for paragraphs */
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin: 10px 0;
+}
+
+.footer-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: var(--transition-bg-color);
+    display: inline-flex; /* Align icon and text */
+    align-items: center;
+    font-size: 16px; /* Base size */
+    /* margin-left: 5px; If icon is present and needs spacing */
+    padding: var(--border-radius-s) 10px; /* 5px 10px */
+    border-radius: var(--border-radius-s);
+    font-weight: normal; /* Override footer bolder */
+}
+
+.footer-links a i, /* Icon styling */
+.footer-links i { /* Standalone icon definition */
+    margin-right: 8px;
+    font-size: 16px; /* Match link text or be slightly larger */
+}
+
+.footer-links a:hover {
+    /* color: var(--text-light); Already set */
+    background-color: var(--text-dark);
+    /* text-decoration: none; Already set */
+}
+
+/* .footer-links a.active is handled by .nav-links li a.active if structure is same */
+/* If footer active is different:
+.footer-links a.active {
+    background-color: var(--highlight-color);
+    color: var(--text-light);
+    font-weight: bolder;
+}
+.footer-links a.active:hover {
+    color: var(--text-light); // Keep text color on hover for active
+    background-color: var(--text-dark); // Standard hover bg
+}
+*/
+
+.footer-contact p {
+    font-size: 14px;
+    margin: 5px 0;
+    font-weight: normal; /* Override footer bolder */
+}
+
+.footer-social a {
+    color: var(--text-light);
+    font-size: 18px; /* Slightly larger for social icons */
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s; /* Added transform transition */
+}
+
+.footer-social a:hover {
+    color: var(--danger-color);
+    transform: scale(1.2); /* Was 1.5px which is not valid, assuming 1.2 scale */
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    margin-top: var(--default-padding);
+    border-top: 2px solid white; /* Or var(--text-light) */
+    padding-top: 10px;
+    font-weight: normal; /* Override footer bolder */
+}
+
+/* Animations */
+@keyframes rollUpDown {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(20px); }
+}
+
+@keyframes swirl {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Base for general use */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Note: .feature cards use translateY(30px) in their base style before animation */
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Navbar responsive */
+    .menu-icon {
+        display: block;
+        margin-left: auto; /* Pushes icon to the right if navbar has space */
+        margin-right: 10px; /* Spacing from edge */
+    }
+
+    .nav-links {
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        position: absolute;
+        top: 70px; /* Adjust based on navbar height */
+        right: 0;
+        width: 100%;
+        background-color: var(--primary-bg);
+        border-radius: 0 0 var(--border-radius-xxl) var(--border-radius-xxl); /* 0 0 20px 20px */
+        /* text-align: right; If links should be right-aligned */
+        padding: 10px 0;
+        z-index: 499; /* Below menubar but above content */
+    }
+
+    .nav-links.active { /* This class is toggled by JS to show menu */
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        width: 100%; /* Make li take full width for easier clicking */
+    }
+    .nav-links li a {
+        width: 90%; /* Make links take most of the li width */
+        justify-content: center; /* Center text in link */
+        margin: 0 auto; /* Center the link block itself */
+    }
+
+    /* Dropdown responsive */
+    .dropdown-content {
+        position: static; /* Becomes part of the flow */
+        width: 100%;
+        flex-direction: column; /* Stack columns */
+        box-shadow: none; /* Optional: remove shadow if it looks odd in flow */
+    }
+    .dropdown-column {
+        width: 100%; /* Full width for each column */
+    }
+    .dropdown:hover .dropdown-content { /* Ensure it still displays on hover/click if needed */
+         /* display: flex; might be handled by .nav-links.active already */
+    }
+
+
+    /* Hero Section responsive */
+    #hero {
+        /* height: 800px; Consider using min-height or auto based on content */
+        height: auto; /* Allow flexible height */
+        /* margin-top: -25px; This negative margin can be tricky, ensure it's intended */
+        flex-direction: column;
+        text-align: center; /* Center content within hero */
+    }
+
+    .hero-section {
+        /* height: 800px; */
+        height: auto;
+        padding-top: var(--default-padding);
+        /* margin-top: -25px; */
+        padding-bottom: 100px; /* Ensure button coverage */
+        background-color: rgba(0, 0, 0, 0.7); /* Darker overlay for text readability */
+        /* z-index: 10; If needed for layering */
+        text-align: center;
+        flex-direction: column;
+    }
+    .hero-img {
+        margin-right: 0;
+        margin-bottom: var(--default-margin-top); /* Space below image when stacked */
+        max-width: 80%; /* Control image size on mobile */
+    }
+
+    .hero-content {
+        padding: 10px; /* Reduce padding */
+        max-width: 90%; /* Allow content to use more width */
+    }
+
+    .hero-content h1 {
+        font-size: 24px; /* Specific smaller size */
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+        margin-bottom: 15px;
+        /* letter-spacing: 2px; This can make text hard to read on small screens */
+        line-height: 1.5;
+    }
+    /* .hero-content p::first-letter {
+        display: flex; Removed, as 'flex' on a pseudo-element like this is unusual.
+                       If a large drop cap is desired, use float and font-size.
+        margin-left: -20px;
+    } */
+
+
+    #cta-btn { /* Responsive CTA */
+        display: block; /* Make it block to control width and margin auto */
+        padding: 10px var(--default-padding);
+        margin: var(--default-padding-large) auto 10px auto; /* 40px auto 10px auto */
+        width: 80%; /* Responsive width */
+        max-width: 300px; /* Max width for the button */
+        font-size: var(--font-size-base); /* Adjust font size */
+        /* position: relative; z-index: 2; Only if complex layering */
+        /* white-space: nowrap; If text should not wrap */
+    }
+
+    hr { /* Responsive hr in hero */
+        /* margin-top: -65px; Highly specific, might be an artifact */
+        margin-bottom: var(--default-padding);
+    }
+
+
+    /* Testimonials responsive */
+    .testimonials-header h1 {
+        font-size: var(--font-size-xl); /* 1.8rem */
+        margin-bottom: var(--default-padding);
+    }
+    .testimonial {
+        width: 100%;
+        max-width: 90%; /* Good for single column layout */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Footer responsive */
+    .footer-container {
+        flex-direction: column;
+        text-align: center; /* Center the stacked columns' titles */
+    }
+    .footer-container div {
+        min-width: 100%; /* Each column takes full width */
+        text-align: center; /* Center content within each stacked column */
+        margin-bottom: var(--default-padding-large); /* More space between stacked sections */
+    }
+    .footer-links ul {
+        display: inline-block; /* To center the list items if text-align:center on parent */
+        text-align: left; /* Keep link text left-aligned */
+    }
+
+
+    /* Features Grid responsive */
+    .grid-container { /* General grid, including for features */
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: var(--default-padding);
+        margin-top: var(--default-padding);
+    }
+
+    /* Adjust Font Size of "Features" Heading (if using header > h1 directly) */
+    header > h1,
+    .header-with-lines { /* If .header-with-lines is used for these titles */
+        font-size: 1.5rem; /* Smaller heading for mobile */
+        /* margin-top: 2px; */
+    }
+    .header-with-lines::before,
+    .header-with-lines::after {
+        margin: 0 5px; /* Reduce space around lines */
+    }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Privacy & Security | Glamorify</title>
+    <link rel="stylesheet" type="text/css" href="privacy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .btn-secure {
+            color: whitesmoke;
+            padding: 10px 20px;
+            border-radius: 20%;
+        }
+        .btn-secure:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!------ Navbar Section ---->
+    <section id="menubar">
+        <div class="navbar">
+            <div class="logo"><a href="#"><img src=""></a></div>
+            <!-- Menu Icon for Mobile -->
+            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+            <!-- Nav Links -->
+            <ul class="nav-links">
+                <li><a href="home.html"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="./market-insights.html"><i class="fas fa-chart-line"></i> Market Insights</a></li>
+                <li><a href="./delivery-tracking.html"><i class="fas fa-truck"></i> Delivery Tracking</a></li>
+                <li><a href="./purchase-tracking.html"><i class="fas fa-shopping-cart"></i> Purchase Tracking</a></li>
+                <li><a href="./privacy-security.html" class="active"><i class="fas fa-user-shield"></i> Privacy</a></li>
+                <li><a href="./mobile-app.html"><i class="fas fa-mobile-screen-button"></i> Mobile App</a></li>
+            </ul>
+        </div>
+        <script src="script.js"></script>
+    </section>
+
+    <main>
+        <section class="hero">
+            <img src="images/read5.jpg" alt="Data Privacy & Security" class="hero-img">
+            <div class="hero-content">
+                <h1>Your Data, Our Priority</h1>
+                <p><b>We implement advanced security protocols to protect your personal information and ensure data privacy across all transactions.</b></p>
+                <a href="#privacy-info" class="btn-secure">Learn More</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h2>Our Commitment to Data Privacy & Security</h2>
+            <div class="feature-card">
+                <h3>End-to-End Encryption</h3>
+                <p><b>All data is encrypted to prevent unauthorized access and breaches.</b></p>
+            </div>
+            <div class="feature-card">
+                <h3>Secure Data Storage</h3>
+                <p><b>Your personal information is stored securely with top-tier data protection measures.</b></p>
+            </div>
+            <div class="feature-card">
+                <h3>Privacy Compliance</h3>
+                <p><b>We adhere to global privacy laws to ensure your rights and data remain protected.</b></p>
+            </div>
+        </section>
+
+        <!-- Call-to-Action Section -->
+        <section class="cta" id="privacy-info">
+            <h2>Protect Your Data with Glamorify</h2>
+            <p><b>Join us in ensuring a secure digital experience where your privacy is our utmost priority.</b></p>
+            <a href="contact.html" class="btn-contact">Get in Touch</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Glamorify. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,295 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+body {
+    background-image: url('images/Grey\ Illustration\ Butterfly\ Background\ Instagram\ Story.png');
+    background-size: cover;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-attachment: scroll;
+    text-align: left; /*Centers the inline block elements inside the body */
+    min-height: 100vh;
+}
+/* Navbar Section Styling */
+#menubar {
+    background-color: #151269;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 500;
+    top: 0;
+}
+
+/* Basic Navbar Styling */
+.navbar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: whitesmoke;            /* White link color */
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 15px;         /* Rounded corners */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+/* Center links in mobile view */
+.nav-links li {
+    text-align: center;
+    width: 100%;
+    letter-spacing: 1.5px;
+}
+
+/* Add background color and hover effect */
+.nav-links li a:hover {
+    background-color: black;  /* Add a background color on hover */
+    color: whitesmoke;                    /* Text color change on hover */
+}
+
+/* Menu Icon Styling */
+.menu-icon {
+    display: inline-block;
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+    margin-right: 50px;
+    margin-left: 20px;
+}
+.active {
+    background-color: dodgerblue;
+}
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide the links by default on mobile */
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background-color: #151269;
+        border-radius: 0 0 20px 20px; /* Round corners on mobile menu */
+    }
+
+    .menu-icon {
+        display: block; /* Show the menu icon on mobile */
+        margin-left: auto;/* Ensure the icon is pushed to the right */
+        margin-right: 10px;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show links when active */
+    }
+    .navbar {
+        justify-content: flex-end;/* Moves all items (including .menu-icon) to the right */
+    }
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(
+        rgba(21, 18, 105, 0.8),
+        rgba(21, 18, 105, 0.8)
+    );
+    animation: fadeIn 1.5s ease-in-out;
+    margin-top: 100px;
+  }
+  
+  .hero-img {
+    flex: 1;
+    max-width: 50%;
+    border-radius: 10px;
+    margin-right: 2rem;
+    animation: slideInLeft 1.5s ease-in-out;
+  }
+  
+  .hero-content {
+    flex: 1;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+    color: whitesmoke;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .hero-content p {
+    margin-bottom: 1.5rem;
+    color: aliceblue;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-explore {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-explore:hover {
+    transform: scale(1.2);
+    background-color: red;
+  }
+
+/*Responsiveness on smaller media screens */
+@media (max-width: 768px) {
+    .hero {
+        margin-top: 70px;
+        flex-direction:column; /*Stack content vertically */
+        text-align: center;
+        height: auto;
+        padding: 20px;
+    }
+    .btn-explore:hover {
+        background-color: red;
+    }
+}
+
+
+/* Features Section */
+.features {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient( #7091E6, #EDE8F5, #8697C4, #ADBBDA,#f0f4ff, #e6ebf5);
+    animation: fadeIn 1s ease-in-out;
+    border-radius: 15px; /*Add rounded images */
+  }
+  
+  .features h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: black;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .feature-card {
+    background: #fff;
+    padding: 2rem;/*Increased padding for spacing */
+    margin: 1.5rem auto; /*Adjusted margin for space between the cards*/ 
+    width: 90%;
+    border: 1px solid #dfe3e8; /*Subtle border for distinction */
+    border-radius: 15px; /*More rounded edges */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow for a modern feel */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .feature-card h3 {
+    color: #007bff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature-card p {
+    color: black;
+  }
+  
+  .feature-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* CTA Section */
+  .cta {
+    background: linear-gradient(to right, #007bff, #0056b3); /* Vibrant blue gradient */
+    color: #fff;
+    border-radius: 15px;
+    text-align: center;
+    padding: 2rem;
+    animation: slideInLeft 1s ease-out;
+  }
+  
+  .cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .btn-contact {
+    background-color: #fff;
+    color: #007bff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .btn-contact:hover {
+    transform: scale(1.1);
+    background-color: red;
+    color: #fff;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #282c34;
+    color: #fff;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .features h2,
+    .cta h2 {
+      font-size: 1.5rem;
+    }
+  
+    .feature-card {
+      width: 100%;
+    }
+  
+    .btn-contact {
+      padding: 0.5rem 1rem;
+    }
+  }
