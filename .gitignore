@@ -1,0 +1,33 @@
+
+---
+
+## 🔹 2. `.gitignore`
+
+### ➤ Steps:
+1. Again, right-click in the same directory.
+2. Click **New File**.
+3. Name it: `.gitignore` (with a dot at the beginning, no extension).
+4. Paste the following into the file:
+
+```gitignore
+# OS
+.DS_Store
+Thumbs.db
+
+# XAMPP or general dev
+*.log
+*.sql
+*.sqlite
+.env
+vendor/
+node_modules/
+cache/
+
+# PHPStorm / VSCode
+.idea/
+.vscode/
+
+# Uploads or compiled
+/public/uploads/
+/build/
+/dist/
